@@ -46,10 +46,16 @@ public class Person {
 		return hasJob;
 	}
 
-	public String firstOption() {
-		 String s = "\nDPI " + this.dpi;
-				s += "Nombre: " + this.nombre;
-
+	public String toString() {
+		 String 
+			s = " <" + this.nombre+" > ";
+				s += " < " + this.apellido +" > ";
+				s += " < " + this.edad +" > ";
+		if (hasJob = true ){
+			s += " < has job > ";
+		}else{
+			s+= "<hasn't job>";
+		}
 		return s;
 	}
 }

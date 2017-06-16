@@ -11,10 +11,16 @@ public class AddressBook {
 	
 	while (true){
 		System.out.println("---MENU---");
+		System.out.println("1. Register a person");
+		System.out.println("2. Show the names");
+		System.out.println("3. Show all the ages ");
+		System.out.println("4. Show all the information of a specific person");
+		System.out.println("What would you like to do? Choose a number");
 		String coso = br.readLine();
 
 	switch(coso){
-		case "Register a Person":
+		case "1":
+		System.out.println("Register a Person");
 		System.out.println("Enter your dpi:   ");
 		String dpi = br.readLine();
 		int dpinum = Integer.parseInt(dpi);
@@ -36,12 +42,41 @@ public class AddressBook {
 
 			cont = new Person(nombre, apellido, edadnum, dpinum, hasJob);
 			libreta.put(dpi, cont);
+		}else{
+			System.out.println("This id is from another user!");
 		}
 		break;
-		case"Show the names":
-		for(Map.Entry nombre: libreta.entrySet()){
-			System.out.println("<"+nombre.getKey()+"> : <"+ ">");
+		case"2":
+		System.out.println("Show the names");
+		Enumeration o = libreta.keys();
+		Object clave;
+		while( o.hasMoreElements() ){
+		  clave = o.nextElement();
+		  libreta.forEach((k,v) -> System.out.println("Key: " + k + ": Value: " + v));
+		  System.out.println("<"+clave+"> : <");
 		}
+
+		break;
+		case"3":
+		System.out.println("Show all the ages");
+		for (String name: libreta.keySet()){
+
+            String key =name.toString();
+            String value = libreta.get(name).toString();  
+            System.out.println(key + " " + value);  
+
+
+} 
+		
+		break;
+		case "4":
+		System.out.println("Show all the information of a specific person");
+		Enumeration e = libreta.elements();
+			Object valor;
+			while( e.hasMoreElements() ){
+			  valor = e.nextElement();
+			  System.out.println( valor );
+			}
 		break;
 		}
 
